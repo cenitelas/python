@@ -1,0 +1,7 @@
+1082:Anatoliy:Ivanovich:Kapec:Salary
+1083:Vasiliy:Antonovich:Shmatko:HR
+1084:Alexandr:Alexandrovich:Atchanov:Salary
+1085:Ivan:Ivanovich:Ivanov:HR
+1086:Veronika:Sergeevna:Davidova:HR
+1087:Sergey:Valeryevich:Komogorcev:Salary
+1088:Anatoliy:Vladimirovich:Ereckiy:HR

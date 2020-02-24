@@ -3,7 +3,7 @@ def check():
     keys = ["class","def", "pass", "with", "import", "for", "in" , "as", "if" , "elif", "else"]
     types = ["type","bool", "str", "int", "float", "null", "dict" , "list", "tuple"]
     if len(text)>0:
-        if(len(text)>2 and text[0]=="_" and text[1]=="_" and text[2].isalpha()):
+        if(len(text)>2 and text[0] == "_" and text[1]=="_" and text[2].isalpha()):
             print("OK: так называют приватные идентификаторы")
             check()
 
@@ -36,3 +36,5 @@ def check():
     check()
 
 check()
+
+

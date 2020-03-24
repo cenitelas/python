@@ -1,0 +1,9 @@
+<form method="post" action="/search" id="search_form">
+    {% csrf_token %}
+  <div class="form-group">
+        <div class="input-group" style="display: flex">
+            <input class="form-control" type="text" name="search" required="" id="id_search" placeholder="Поиск">
+            <button type="submit" class="input-group-addon"><i class="fa fa-search"></i></button>
+        </div>
+    </div>
+</form>

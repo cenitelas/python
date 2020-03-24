@@ -1,28 +1,54 @@
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-<h2>Sign up</h2>
-  <form method="post">
-    {% csrf_token %}
-    {% for field in form %}
-      <p>
-        {{ field.label_tag }}<br>
-        {{ field }}
-        {% if field.help_text %}
-          <small style="color: grey">{{ field.help_text }}</small>
-        {% endif %}
-        {% for error in field.errors %}
-          <p style="color: red">{{ error }}</p>
-        {% endfor %}
-      </p>
-    {% endfor %}
-    <button type="submit">Sign up</button>
+{% extends "base.html" %}
+
+{% block body %}
+<div class="login-block">
+    <img src="/static/1.png" alt="Scanfcode">
+    <h1>Введите свои данные</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user ti-user"></i></span>
+                <input class="form-control" type="text" name="username" maxlength="150" autofocus="" required="" id="id_username" placeholder="Логин">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-id-badge ti-id-badge"></i></span>
+                <input class="form-control" type="text" name="first_name" maxlength="30" id="id_first_name" placeholder="Имя">
+           </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-id-badge"></i></span>
+                <input class="form-control" type="text" name="last_name" maxlength="30" id="id_last_name" placeholder="Фамилия">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-at"></i></span>
+                <input class="form-control" type="email" name="email" maxlength="254" required="" id="id_email" placeholder="E-mail">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <input class="form-control" type="password" name="password1" autocomplete="new-password" required="" id="id_password1" placeholder="Пароль">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <input class="form-control" type="password" name="password2" autocomplete="new-password" required="" id="id_password2" placeholder="Повторите пароль">
+              </div>
+        </div>
+
+    <button class="btn btn-primary btn-block" type="submit">РЕГИСТРАЦИЯ</button>
   </form>
-</body>
-</html>
+</div>
+{% endblock %}

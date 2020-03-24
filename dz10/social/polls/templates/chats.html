@@ -1,0 +1,10 @@
+{% load static %}
+<script src="/static/js/base.js"></script>
+<div class="chats">
+{% for chat in chats %}
+    <span class="chat" onclick="get_message('{{chat.id}}')">
+        <div class="photo" style="background-image:url({{chat.profile.photo}})"></div>
+        <span>{{chat.first_name}}</span>
+    </span>
+{% endfor %}
+</div>

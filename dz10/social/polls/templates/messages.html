@@ -1,0 +1,17 @@
+<script src="/static/js/base.js"></script>
+{% for friend, messages in chat.items %}
+    <span class="chat">
+        <div class="photo" style="background-image:url({{friend.profile.photo}})"></div>
+        <span>{{friend.first_name}}</span>
+    </span>
+        <div class="messages">
+    {% for message in messages %}
+            <div class="message" {% if message.sender == user%} style="justify-content: flex-start" {% else %} style="justify-content: flex-end" {% endif %}>
+                <div class="info">
+                    <span class="user">{% if message.sender == user%} Я: {% else %} {{message.sender.first_name}}: {% endif %}</span>
+                    <span>{{message.message}}</span>
+                </div>
+            </div>
+    {% endfor %}
+        </div>
+{% endfor %}

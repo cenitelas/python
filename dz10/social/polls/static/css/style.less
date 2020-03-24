@@ -1,0 +1,322 @@
+body{
+  margin: 0 auto;
+  padding: 0;
+  top:0;
+  left: 0;
+  background:rgba(0,10,20,1) center no-repeat;
+  background-size:cover;
+  image-rendering: pixelated;
+  font-family: 'Ruslan Display', cursive;
+  & input, h1 {
+    font-family: 'Ruslan Display', cursive !important;
+  }
+}
+
+#canvas{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  z-index: 21;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0.5vw 1vw 0.5vw rgba(255, 255, 255, 0.15);
+  width: 100%;
+  .logo{
+    span{
+      display: flex;
+      width: 10vw;
+      margin-left: 4vw;
+      color: #fff;
+      font-size: 2vw;
+    }
+    display: flex;
+    position: relative;
+    z-index: 23;
+    background: url(/static/step.png) no-repeat;
+    background-size: contain;
+    height: 5vh;
+    width: 25vw;
+    margin: 1vh 2vw;
+  }
+  .navigate{
+    margin-top: 3vh;
+    margin-right: 3vw;
+    display: flex;
+    justify-content: flex-end;
+    height: 5vh;
+    text-align: center;
+    width: 50vw;
+    a{
+      margin-left: 2vw;
+    }
+    p{
+      color: #fff;
+    }
+    #search_form{
+      display: flex;
+      margin-right: 2vw;
+      margin-top: -0.3vw;
+      button{
+        padding-right: 1.2vw;
+        &:hover{
+          background: transparent;
+          cursor: pointer;
+          color: #fff;
+        }
+      }
+    }
+
+  }
+}
+.content {
+  position: relative;
+  z-index: 21;
+  margin-top: 6vh;
+  .login-block {
+    z-index: 2;
+    width: 30vw;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 60px;
+    -webkit-box-shadow: 0 3px 50px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 3px 50px 0 rgba(0, 0, 0, .1);
+    text-align: center;
+    border-radius: 5px;
+    h1, h6 {
+      font-family: Open Sans, sans-serif;
+      color: #c8d7eb;
+      letter-spacing: 1px;
+    }
+    h1 {
+      font-size: 22px;
+      margin-bottom: 60px;
+      margin-top: 40px
+    }
+    .form-group {
+
+      .input-group {
+        height: 4vh;
+        .input-group-addon {
+          color: #29aafe;
+          font-size: 19px;
+          opacity: .5;
+          height: 4vh;
+        }
+        input {
+          font-size: 19px;
+          height: 4vh;
+        }
+      }
+    }
+    .btn-block {
+      margin-top: 30px;
+      padding: 15px;
+      background: #29aafe;
+      border-color: #29aafe;
+    }
+  }
+  .main{
+    display: flex;
+    justify-content: start;
+    .menu{
+      display: flex;
+      flex-direction: column;
+      margin-left: 2vw;
+      width: 15vw;
+      height: 80vh;
+      background-color: rgba(255, 255, 255, 0.15);
+      border-radius: 5px;
+      padding: 1vh 0;
+      a{
+        margin: 0.5vh auto;
+      }
+    }
+    #profile{
+      position: relative;
+      margin-left: 2vw;
+      background-color: rgba(255, 255, 255, 0.15);
+      border-radius: 5px;
+      height: 30vh;
+      width: 50%;
+      .profile{
+        padding: 2vw;
+        display: flex;
+        .photo{
+          position: relative;
+          width: 10vw;
+          height: 20vh;
+          display: block;
+          box-shadow: 0 0 1vw 0.7vw #bfbfbf;
+          .img{
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 10vw;
+            height: 20vh;
+            box-shadow: inset 0 0 0.5vw 0.3vw #bfbfbf;
+          }
+        }
+        .info{
+          padding-left: 3vw;
+          color: white;
+          span{
+            color: #428bca;
+            margin-right: 1vw;
+          }
+        }
+      }
+    }
+  }
+}
+
+.chats{
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  .chat{
+    display: flex;
+    height: 7vh;
+    width: 90%;
+    margin: 0.5vh 1vw;
+    background-color: #fff;
+    padding: 1vh 1vw;
+    &:hover{
+      background-color: #428bca;
+      color: white;
+      border: 1px solid white;
+    }
+    .photo{
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 3vw;
+      height: 5vh;
+      box-shadow: inset 0 0 0.5vw 0.3vw #bfbfbf;
+    }
+    span{
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}
+
+.room{
+  background-color: #fff;
+  margin: 1vw;
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  height: 70vh;
+  border-radius: 5px;
+  #chat {
+    .chat {
+      display: flex;
+      height: 7vh;
+      width: 90%;
+      margin: 0.5vh 1vw;
+      background-color: #fff;
+      padding: 1vh 1vw;
+      .photo {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 3vw;
+        height: 5vh;
+        box-shadow: inset 0 0 0.5vw 0.3vw #bfbfbf;
+      }
+      span {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+    .messages {
+      height: 55vh;
+      overflow-y: auto;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      margin: 0.5vw;
+      border: 1px solid black;
+      background-color: azure;
+      transition: bottom 0.3s;
+      .message {
+        display: flex;
+        flex-direction: row;
+        .info {
+          margin: 0.5vh 1vw;
+          border: 1px solid grey;
+          padding: 1vh 2vw;
+          border-radius: 1vw;
+          display: flex;
+          flex-direction: column;
+          background: #fff;
+          .user {
+            color: #428bca;
+            font-size: 120%;
+          }
+        }
+      }
+    }
+  }
+   #message_form {
+      margin: 0 1vw;
+      button {
+        padding-right: 2vw;
+      }
+    }
+}
+
+.search_result{
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  a{
+    margin: 1vh auto;
+    border-bottom: 1x solid grey;
+  }
+}
+
+#modal{
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 30;
+  top:0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  .modal-content{
+    width: auto;
+    height: auto;
+    min-height: 10vh;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    .close{
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 1vw;
+    }
+    .content{
+      margin-top: 1vh;
+      width: 100%;
+      height: auto;
+      border-top: 2px solid black;
+      border-bottom: 2px solid black;
+    }
+  }
+}

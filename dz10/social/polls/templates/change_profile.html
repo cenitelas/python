@@ -1,0 +1,28 @@
+<form enctype="multipart/form-data" method="post" style="padding: 1vw 2vw" id="change_profile_form" action="/change_profile">
+{% csrf_token %}
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-user ti-user"></i></span>
+            <input class="form-control" type="text" name="user_first_name" maxlength="30" id="id_user_first_name" value="{{user.first_name}}">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-user ti-user"></i></span>
+            <input class="form-control" type="text" name="user_last_name" maxlength="30" id="id_user_last_name" value="{{user.last_name}}">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+            <input class="form-control" type="date" name="birth_date" id="id_birth_date" value="{{user.profile.birth_day}}">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-image"></i></span>
+            <input class="form-control" type="file" name="photo" id="id_photo">
+        </div>
+    </div>
+        <button class="btn btn-primary btn-block" type="submit">СОХРАНИТЬ</button>
+</form>

@@ -9,9 +9,27 @@ class LogonForm(forms.Form):
 
 
 class SignUpForm(UserCreationForm):
-    birth_date = forms.DateField(help_text='Required. Format: YYYY-MM-DD')
+    first_name = forms.CharField(max_length=30, help_text='Optional.')
+    last_name = forms.CharField(max_length=30, help_text='Optional.')
+    email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
 
     class Meta:
         model = User
-        fields = ('username', 'birth_date', 'password1', 'password2', )
+        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2',)
+
+
+class SearchForm(forms.Form):
+    search = forms.CharField(label='search', max_length=100, required=True)
+
+
+class ProfileForm(forms.Form):
+    user_first_name = forms.CharField(max_length=30, help_text='Optional.')
+    user_last_name = forms.CharField(max_length=30, help_text='Optional.')
+    birth_date = forms.DateField(required=False)
+    photo = forms.ImageField(required=False)
+
+
+class MessageForm(forms.Form):
+    sender_id = forms.HiddenInput()
+    message = forms.CharField(max_length=200, required=True)
 

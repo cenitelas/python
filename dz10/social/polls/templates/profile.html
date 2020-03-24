@@ -1,0 +1,24 @@
+{% extends "main.html" %}
+
+{% block profile %}
+<div class="profile">
+    <div class="photo">
+        {% if profile.profile.photo %}
+        <div class="img" style="background-image:url({{profile.profile.photo}})"></div>
+        {% else %}
+        <div class="img" style="background-image:url(/static/1.png)"></div>
+        {% endif %}
+    </div>
+    <div class="info">
+        <div><span>Имя:</span> {{profile.first_name}} {{profile.last_name}}</div>
+        <div><span>E-mail:</span> {{profile.email}}</div>
+        <div><span>Дата рождения:</span>{% if profile.profile.birth_date %} {{profile.profile.birth_date}} {% else %} Не указана {% endif %}</div>
+        {% if profile.id == user.id %}
+            <button class="btn btn-primary btn-block" id="change_profile">Изменить профиль</button>
+        {% else %}
+            <button id="message_send" data-user="{{profile.id}}" class="btn btn-primary btn-block">Отправить сообщение</button>
+        {% endif %}
+    </div>
+
+</div>
+{% endblock %}

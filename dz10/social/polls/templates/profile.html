@@ -1,5 +1,6 @@
-{% extends "main.html" %}
 
+{% extends "main.html" %}
+{% load i18n %}
 {% block profile %}
 <div class="profile">
     <div class="photo">
@@ -14,9 +15,9 @@
         <div><span>E-mail:</span> {{profile.email}}</div>
         <div><span>Дата рождения:</span>{% if profile.profile.birth_date %} {{profile.profile.birth_date}} {% else %} Не указана {% endif %}</div>
         {% if profile.id == user.id %}
-            <button class="btn btn-primary btn-block" id="change_profile">Изменить профиль</button>
+            <button class="btn btn-primary btn-block" id="change_profile">{% trans "Change Profile" %}</button>
         {% else %}
-            <button id="message_send" data-user="{{profile.id}}" class="btn btn-primary btn-block">Отправить сообщение</button>
+            <button id="message_send" data-user="{{profile.id}}" class="btn btn-primary btn-block">{% trans "send message" %}</button>
         {% endif %}
     </div>
 

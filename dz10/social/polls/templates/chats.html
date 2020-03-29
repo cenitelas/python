@@ -1,6 +1,10 @@
+{% load i18n %}
 {% load static %}
 <script src="/static/js/base.js"></script>
 <div class="chats">
+{% if chat|length == 0 %}
+    <span style="text-align: center; color:#fff">{% trans "No message" %}</span>
+{% endif %}
 {% for chat in chats %}
     <span class="chat" onclick="get_message('{{chat.id}}')">
         <div class="photo" style="background-image:url({{chat.profile.photo}})"></div>

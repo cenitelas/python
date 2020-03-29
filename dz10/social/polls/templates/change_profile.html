@@ -1,3 +1,4 @@
+{% load i18n %}
 <form enctype="multipart/form-data" method="post" style="padding: 1vw 2vw" id="change_profile_form" action="/change_profile">
 {% csrf_token %}
     <div class="form-group">
@@ -24,5 +25,5 @@
             <input class="form-control" type="file" name="photo" id="id_photo">
         </div>
     </div>
-        <button class="btn btn-primary btn-block" type="submit">СОХРАНИТЬ</button>
+        <button class="btn btn-primary btn-block" type="submit">{% trans "save" %}</button>
 </form>

@@ -1,3 +1,7 @@
+{% load i18n %}
+{% if profiles|length == 0 %}
+    <span style="display:flex; justify-content: center; color:#fff; width:30vw;">{% trans "No such user" %}</span>
+{% endif %}
 {% for profile in profiles %}
 <div class="search_result">
     <a href="/main/{{profile.id}}">{{profile.last_name}}</a>

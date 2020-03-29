@@ -1,29 +1,39 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block body %}
 <div class="login-block">
     <img src="/static/1.png" alt="Scanfcode">
-    <h1>Введите свои данные</h1>
+    <h1>{% trans "enter your data" %}</h1>
+    {% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+                <small style="color: red">{{error|escape }}</small></br>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+            <small style="color:red">{{ error|escape }}</small></br>
+    {% endfor %}
+{% endif %}
     <form method="post">
         {% csrf_token %}
         <div class="form-group">
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user ti-user"></i></span>
-                <input class="form-control" type="text" name="username" maxlength="150" autofocus="" required="" id="id_username" placeholder="Логин">
+                <input class="form-control" type="text" name="username" maxlength="150" autofocus="" required="" id="id_username" placeholder="{% trans "Login" %}">
             </div>
         </div>
 
         <div class="form-group">
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-id-badge ti-id-badge"></i></span>
-                <input class="form-control" type="text" name="first_name" maxlength="30" id="id_first_name" placeholder="Имя">
+                <input class="form-control" type="text" name="first_name" maxlength="30" required="" id="id_first_name" placeholder="{% trans "first name" %}">
            </div>
         </div>
 
         <div class="form-group">
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-id-badge"></i></span>
-                <input class="form-control" type="text" name="last_name" maxlength="30" id="id_last_name" placeholder="Фамилия">
+                <input class="form-control" type="text" name="last_name" maxlength="30" required="" id="id_last_name" placeholder="{% trans "second name" %}">
             </div>
         </div>
 
@@ -37,18 +47,18 @@
         <div class="form-group">
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                <input class="form-control" type="password" name="password1" autocomplete="new-password" required="" id="id_password1" placeholder="Пароль">
+                <input class="form-control" type="password" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$" title="Пример: PriveT123" name="password1" autocomplete="none" required="" id="id_password1" placeholder="{% trans "Password" %}">
             </div>
         </div>
 
         <div class="form-group">
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                <input class="form-control" type="password" name="password2" autocomplete="new-password" required="" id="id_password2" placeholder="Повторите пароль">
+                <input class="form-control" type="password" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$" title="Пример: PriveT123" name="password2" autocomplete="none" required="" id="id_password2" placeholder="{% trans "Repeat password" %}">
               </div>
         </div>
 
-    <button class="btn btn-primary btn-block" type="submit">РЕГИСТРАЦИЯ</button>
+    <button class="btn btn-primary btn-block" type="submit">{% trans "sign up" %}</button>
   </form>
 </div>
 {% endblock %}

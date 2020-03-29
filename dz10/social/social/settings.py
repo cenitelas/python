@@ -28,8 +28,41 @@ SECRET_KEY = 'xvjkd$1qeqi!5@nr0u=qd9o&*%w3kb_8j_y_*g11yz5uj$35+m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    # определения форматтеров
+    'formatters': {
+        'verbose': {
+            'format': '{asctime} {levelname} {process:d}-{thread:d} {name}: {message}',
+            'style': '{',
+        }
+    },
+    # определения обработчиков логов (им назначаются фильтры и форматтеры)
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        },
+        'file': {
+            'class': 'logging.FileHandler',
+            'formatter': 'verbose',
+            'filename': './debug.log',
+        },
+    },
+    # определения логгеров (им назначаются обработчики, уровень логгирования, переопределяются фильтры)
+    'loggers': {
+        'social': {
+            'handlers': ['file', 'console'],
+            'level': 'INFO',
+            'propagate': True
+        }
+    }
+}
 
 ALLOWED_HOSTS = ['*']
+
+WSGI_APPLICATION = 'social.wsgi.application'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
@@ -62,7 +95,8 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware'
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'social.urls'
@@ -95,10 +129,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'social',
-        'USER' : 'fivern',
-        'PASSWORD' : '896325',
-        'HOST' : '127.0.0.1',
-        'PORT' : '5432',
+        'USER': 'social',
+        'PASSWORD': '896325',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
@@ -126,6 +160,15 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+
+LANGUAGES = (
+    ('ru', 'Russian'),
+    ('en', 'English'),
+)
+
+LOCALE_PATHS = (
+     os.path.join(BASE_DIR, 'locale'),
+)
 
 TIME_ZONE = 'UTC'
 

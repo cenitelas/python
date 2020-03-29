@@ -1,10 +1,10 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block body %}
 <div class="main">
     <div class="menu">
-        <a href="/main">Моя страница</a>
-        <a class="messages_link" href="/chats">Сообщения</a>
+        <a href="/main">{% trans "My page" %}</a>
+        <a class="messages_link" href="/chats">{% trans "Messages" %}</a>
     </div>
     <div id="profile">
         {% block profile %}

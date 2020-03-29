@@ -13,6 +13,11 @@ def check():
                     currency[params[3].lower()][params[1].lower()] = float(params[2])
                 else:
                     currency[params[3].lower()] = {params[1].lower(): float(params[2])}
+                if currency.get(params[1].lower()):
+                    currency[params[1].lower()][params[3].lower()] = float(params[0])/float(params[2])
+                else:
+                    currency[params[1].lower()] = {params[3].lower(): float(params[0])/float(params[2])}
+
                 print("OK")
         except:
             print("Нет такой валютной пары")

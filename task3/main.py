@@ -45,7 +45,6 @@ def cyr2lat2cyr(ch, start):
     return ch
 
 
-
 def main():
     args = sys.argv[1:]
     newStr = []
@@ -58,7 +57,6 @@ def main():
 
         for ch in str:
             newStr.append(cyr2lat2cyr(ch.upper(), check))
-
 
     print("".join(newStr))
 
